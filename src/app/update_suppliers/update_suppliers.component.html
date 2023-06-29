@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="content">
+    <h4 style="color: black">Update Suppliers</h4>
+    <div class="container">
+      <select class="dropdown">
+        <option value="electricity">Electricity</option>
+        <option value="gas">Gas</option>
+        <option value="broadband">Broadband</option>
+        <option value="home_insurance">Home Insurance</option>
+        <option value="waste">Waste</option>
+        <option value="home_secure">Home Secure</option>
+      </select>
+    <!--start date of the new contract-->
+      <label for="start-date">Start Date:</label>
+      <select id="start-date" class="dropdown">
+        <option *ngFor="let date of dates" [value]="date">{{ date }}</option>
+      </select>
+      <!--end date of the new contract-->
+      <label for="end-date">End Date:</label>
+      <select class="dropdown">
+        <option *ngFor="let date of dates" [value]="date">{{ date }}</option>
+      </select>
+    </div>
+
+    <div class="button-space"></div>
+    <div class="button-container">
+      <button class="btn btn-primary">Update</button>
+    </div>
+  </div>
+</div>
+
+  <body class="background-image">
+  <!-- Your page content here -->
+  </body>  

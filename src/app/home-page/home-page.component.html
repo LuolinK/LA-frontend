@@ -1,0 +1,29 @@
+<div class="container">
+    <h4 class="card-header" style="color: black">Click To Update</h4>
+    <div>
+      <button [disabled]="" class="btn btn-primary" (click)="navigateToUpdate_suppliers()">
+        <span
+          *ngIf=""
+          class="spinner-border spinner-border-sm me-1"
+        ></span>
+        Update Suppliers
+      </button>
+      <div class="button-space"></div> 
+      <!-- Space for additional buttons -->
+      <div>
+        <button [disabled]="" class="btn btn-primary" (click)="navigateToUpdate_dues()">
+          <span
+            *ngIf=""
+            class="spinner-border spinner-border-sm me-1"
+          ></span>
+          Update Due Dates
+        </button>
+      </div>
+      <body class="background-image">
+        <!-- Your page content here -->
+      </body>
+    </div>
+  </div>
+<body class="background-image">
+  <!-- Your page content here -->
+</body>  

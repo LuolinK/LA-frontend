@@ -58,14 +58,15 @@ errorHidden: boolean = true;
                     console.log(50);
                     console.log(result);
                     if(result) {
-                    // get return url from query parameters or default to home page
-                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                    this.router.navigateByUrl('/landing-page');
+                        console.log("result is true")
+                        
+                        
                     
                     this.errorHidden =true;
                     } else {
+                        console.log("naviage to....")
                         this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-                        this.router.navigate(['/login']));
+                        this.router.navigate(['/home_page']));
                         this.loading = false;
                     console.log(59);
                     this.errorHidden =false;
@@ -77,4 +78,4 @@ errorHidden: boolean = true;
                 }
             });
     }
-}
+}   

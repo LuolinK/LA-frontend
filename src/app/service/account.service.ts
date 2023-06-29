@@ -26,7 +26,7 @@ export class AccountService {
 
     login(username: string, password: string): Observable<boolean> {
         
-        return this.http.post<LoginResult>('http://' + hostname + ':5000/request/authenticate', { userName: username, passWord: password })
+        return this.http.post<LoginResult>('http://127.0.0.1:8080/login', { userName: username, passWord: password })
             .pipe(map(result => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 console.log(result);

@@ -3,19 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- Import the FormsModule
 import { CommonModule, NgIf } from '@angular/common';
 import { Router } from 'express';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { Update_suppliersComponent } from './update_suppliers/update_suppliers.component';
+import { Update_duesComponent } from './update_dues/update_dues.component';
 @NgModule({
-  declarations: [
+  declarations: [			
     AppComponent,
-    LandingPageComponent,
     LoginComponent,
-  ],
+      HomePageComponent,
+      Update_suppliersComponent,
+      Update_duesComponent
+   ],
   imports: [
     AppRoutingModule,
     FormsModule,
@@ -25,7 +29,7 @@ import { LoginComponent } from './login/login.component';
     RouterModule.forRoot([
       {path: '',   redirectTo: '/login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
-      {path: 'landing-page', component: LandingPageComponent},
+      
     ]),
     HttpClientModule,
     FormsModule,

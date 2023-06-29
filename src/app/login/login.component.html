@@ -1,17 +1,15 @@
-<div class="card">
-    <h4 class="card-header">Login</h4>
+<div class="card">    
+    <h4 class="card-header" style="color: black;">Login</h4>
     <div class="card-body">
         <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input type="text" formControlName="username" class="form-control" />
+            <div class="mb-3">    
+                <input type="text" placeholder="User ID" formControlName="username" class="form-control" />
                 <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
                     <div *ngIf="f['username'].errors['required']">Username is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" formControlName="password" class="form-control" />
+                <input type="password" placeholder="Password" formControlName="password" class="form-control" />
                 <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                     <div *ngIf="f['password'].errors['required']">Password is required</div>
                 </div>
@@ -20,13 +18,19 @@
                 <button [disabled]="loading" class="btn btn-primary">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     Login
-                </button>
+                </button> 
+                <div class="button-space"></div> <!-- Space for additional buttons -->
+                <label class="form-label" style="color:aliceblue; font-style: italic; font-size: small;">Don't have an account? Click here to get one  </label>
+                <button (click)="loading" style="display: contents; color:cornsilk;">Create an Account</button> 
             </div>
-            
+
+
             <div class="error-message" [hidden]="errorHidden">
                     Wrong password or username!
                 </div>
         </form>
     </div>
 </div>
-
+<body class="background-image">
+    <!-- Your page content here -->
+</body>  
