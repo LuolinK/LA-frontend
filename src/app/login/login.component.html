@@ -1,17 +1,17 @@
 <div class="card">    
     <h4 class="card-header" style="color: black;">Login</h4>
     <div class="card-body">
-        <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">    
-                <input type="text" placeholder="User ID" formControlName="username" class="form-control" />
-                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                    <div *ngIf="f['username'].errors['required']">Username is required</div>
+                <input type="text" placeholder="userName" formControlName="userName" class="form-control" />
+                <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['userName'].errors['required']">Username is required</div>
                 </div>
             </div>
             <div class="mb-3">
-                <input type="password" placeholder="Password" formControlName="password" class="form-control" />
-                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                <input type="password" placeholder="Password" formControlName="passWord" class="form-control" />
+                <div *ngIf="submitted && f['passWord'].errors" class="invalid-feedback">
+                    <div *ngIf="f['passWord'].errors['required']">Password is required</div>
                 </div>
             </div>
             <div>
@@ -21,11 +21,11 @@
                 </button> 
                 <div class="button-space"></div> <!-- Space for additional buttons -->
                 <label class="form-label" style="color:aliceblue; font-style: italic; font-size: small;">Don't have an account? Click here to get one  </label>
-                <button (click)="loading" style="display: contents; color:cornsilk;">Create an Account</button> 
+                <button (click)="navigateToRegister()" style="display: contents; color:cornsilk;">Create an Account</button> 
             </div>
 
 
-            <div class="error-message" [hidden]="errorHidden">
+            <div class="error-message" *ngIf="!loginSuccess">
                     Wrong password or username!
                 </div>
         </form>
@@ -33,4 +33,4 @@
 </div>
 <body class="background-image">
     <!-- Your page content here -->
-</body>  
+</body>

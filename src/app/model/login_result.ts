@@ -1,4 +1,4 @@
 export class LoginResult {
-token: string;
-authorized: boolean;
-}
+    message: string;
+    user: object;
+    }

@@ -1,0 +1,40 @@
+<h2>Create Account</h2>
+
+<form (ngSubmit)="registerAccount()">
+  <div>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" [(ngModel)]="customer.name" ame="firstname" required>
+  </div>
+  
+  <div>
+    <label for="username">Last Name:</label>
+    <input type="text" id="lastname" [(ngModel)]="customer.name" ame="lastname" required>
+  </div>
+  <div>
+    <label for="username">User Name:</label>
+    <input type="text" id="username" [(ngModel)]="customer.name" ame="username" required>
+  </div>
+
+  <div>
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" [(ngModel)]="customer.contact" name="contact" required>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="customer.email" name="email" required>
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="customer.password" name="password" required>
+  </div>
+  <div>
+    <label for="password">Password Verify:</label>
+    <input type="password" id="password" [(ngModel)]="customer.password" name="password" required>
+  </div>
+  <button type="submit">Register</button>
+</form>
+<body class="background-image">
+  <!-- Your page content here -->
+</body>  

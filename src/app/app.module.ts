@@ -12,13 +12,17 @@ import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { Update_suppliersComponent } from './update_suppliers/update_suppliers.component';
 import { Update_duesComponent } from './update_dues/update_dues.component';
+import { RegistrationComponent } from './registration/registration.component';
+
+
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     LoginComponent,
-      HomePageComponent,
-      Update_suppliersComponent,
-      Update_duesComponent
+    HomePageComponent,
+    Update_suppliersComponent,
+    Update_duesComponent,
+    RegistrationComponent,  
    ],
   imports: [
     AppRoutingModule,
@@ -26,6 +30,8 @@ import { Update_duesComponent } from './update_dues/update_dues.component';
     NgIf,
     BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '',   redirectTo: '/login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},

@@ -4,78 +4,76 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '../service';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { error } from 'jquery';
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css',],
-  })
-
+  selector: 'login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+})
 export class LoginComponent implements OnInit {
+  loading = false;
+  submitted = false;
+  loginSuccess = false;
+  loginForm: FormGroup = this.formBuilder.group({
+    userName: ['', Validators.required],
+    passWord: ['', Validators.required]
+  });
+  errorHidden = true;
 
-    loading = false;
-    submitted = false;
-loginform: FormGroup<any> = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl()
-});
-errorHidden: boolean = true;
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private accountService: AccountService,
+    private alertService: AlertService
+  ) {}
 
+  ngOnInit() {
+    // Initialize logic if needed
+  }
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private accountService: AccountService,
-        private alertService: AlertService
-    ) { 
-    
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.loginForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    // reset alerts on submit
+    this.alertService.clear();
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
     }
 
-    ngOnInit() {
-       
-    }
-    // convenience getter for easy access to form fields
-    get f() { return this.loginform.controls; }
-
-    onSubmit() {
-        this.submitted = true;
-
-        // reset alerts on submit
-        this.alertService.clear();
-
-        // stop here if form is invalid
-        if (this.loginform.invalid) {
-            return;
+    this.loading = true;
+    this.accountService.login(this.f['userName'].value, this.f['passWord'].value)
+      .pipe(first())
+      .subscribe({
+        next: (result) => {
+          if (result) {
+            // Navigating to home page if login is successful
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+              this.router.navigate(['/home_page'])
+            );
+            this.loading = false;
+            this.loginSuccess = true;
+          } else {
+            // Show error message when login failed
+            this.errorHidden = false;
+            this.loginSuccess = false;
+          }
+        },
+        error: (error) => {
+          this.alertService.error(error);
+          this.loading = false;
+          this.loginSuccess = false;
         }
-        this.loading = true;
-        this.accountService.login(this.f['username'].value, this.f['password'].value)
-            .pipe(first())
-            .subscribe(  {
-                next: (result) => {
-                    console.log(50);
-                    console.log(result);
-                    if(result) {
-                        console.log("result is true")
-                        
-                        
-                    
-                    this.errorHidden =true;
-                    } else {
-                        console.log("naviage to....")
-                        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-                        this.router.navigate(['/home_page']));
-                        this.loading = false;
-                    console.log(59);
-                    this.errorHidden =false;
-                    }
-                },
-                error: error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                }
-            });
-    }
-}   
+      });
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']); // replace '/register' with the route to your registration page
+  }
+}
