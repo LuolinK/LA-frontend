@@ -1,6 +1,6 @@
 <div class="container hamburger-container">
 <div class="container">
-  <header class="left_hand_sidebar">
+  <header class="right_hand_sidebar">
     <button
       class="hamburger hamburger--spin"
       [ngClass]="{ 'is-active': hamburger_toggled }"
@@ -18,7 +18,7 @@
     <h1>Living Assistant</h1>
   </header>
   <header></header>
-  <nav class="left_hand_sidebar">
+  <nav class="right_hand_sidebar">
     <div
       class="navigation-menu"
       [ngClass]="{ 'show-navigation': hamburger_toggled }"
@@ -27,41 +27,9 @@
       <ul>
         <li>
           <a
-            id="hamburger-landing"
-            class="button"
-            routerLink="/landing-page"
-            routerLinkActive="activebutton"
-            ariaCurrentWhenActive="page"
-            >Landing page</a
-          >
-        </li>
-        <li>
-          <a
-            id="hamburger-map"
-            class="button"
-            routerLink="/map2"
-            routerLinkActive="activebutton"
-            ariaCurrentWhenActive="page"
-            >map</a
-          >
-        </li>
-        <li>
-          <a
-            id="hamburger-recommendation"
-            class="button"
-            routerLink="/recommendation"
-            routerLinkActive="activebutton"
-            ariaCurrentWhenActive="page"
-            >Recommendations</a
-          >
-        </li>
-        <li>
-          <a
-            class="button"
-            routerLink="/old-recommendations"
-            routerLinkActive="activebutton"
-            ariaCurrentWhenActive="page"
-            >Old Recommendations</a
+            id="hamburger-logout"
+            button (click)="logout()"
+            >Logout</a
           >
         </li>
         <!--<li><a class="button" routerLink="/create-recommendation" routerLinkActive="activebutton"
@@ -73,7 +41,7 @@
     <router-outlet></router-outlet>
   </main>
   <aside></aside>
-  <footer class="left_hand_sidebar">
+  <footer class="right_hand_sidebar">
     <!-- Footer -->
   </footer>
   <footer>

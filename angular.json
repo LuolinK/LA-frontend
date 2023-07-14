@@ -26,7 +26,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": [],
             "serviceWorker": true,
@@ -42,8 +43,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "70kb",
+                  "maximumError": "100kb"
                 }
               ],
               "outputHashing": "all"
@@ -69,7 +70,11 @@
               "browserTarget": "front-end:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "host": "livingassistant.ie",
+            "port": 3000
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -91,19 +96,23 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "front-end:build:production"
           }
         }
       }
     }
   },
-  "styles": [
-      "styles.css",
-      "./node_modules/leaflet/dist/leaflet.css"
-  ],
   "cli": {
     "analytics": "e01fbe3c-dbb9-4830-8f09-7c8f097d5ecf"
-  },
+  }
 }

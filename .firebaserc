@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "livingassistant-fb7dc"
+  },
+  "targets": {
+    "livingassistant-fb7dc": {
+      "hosting": {
+        "front-end": [
+          "livingassistant-fb7dc"
+        ]
+      }
+    }
+  }
+}

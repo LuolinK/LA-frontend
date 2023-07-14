@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { AccountService } from '../service';
 
 
 
@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private accountService: AccountService
 
   ) { 
 
@@ -23,6 +24,10 @@ export class HomePageComponent implements OnInit {
   
   ngOnInit() {
        
+  }
+
+  logout() {
+    this.accountService.logout();
   }
 
   navigateToUpdate_suppliers() {

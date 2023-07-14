@@ -15,14 +15,16 @@ import { Update_duesComponent } from './update_dues/update_dues.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 
+
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
     LoginComponent,
     HomePageComponent,
     Update_suppliersComponent,
     Update_duesComponent,
-    RegistrationComponent,  
+    RegistrationComponent,
+  
    ],
   imports: [
     AppRoutingModule,

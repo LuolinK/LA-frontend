@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  navigateToRegister() {
-    this.router.navigate(['/register']); // replace '/register' with the route to your registration page
+  navigateToRegistion() {
+    this.router.navigate(['/registration']); // replace '/register' with the route to your registration page
   }
 }

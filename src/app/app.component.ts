@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AccountService } from './service';
 import { User } from './model';
+import { Router } from '@angular/router';
+
+
 
 
 
@@ -22,14 +25,17 @@ export class AppComponent {
 hamburgerVisible$: Observable<boolean>;
   
   constructor(
-    private accountService: AccountService,) { 
+    private accountService: AccountService,
+    private router: Router
+    ) { 
       this.hamburgerVisible$ = accountService.user.pipe(map((value: User | null) => {
         if(value === null) {
           return false;
         } else {
           return true;
         }
-      }),);
+      }
+      ),);
     this.hamburger_toggled$.subscribe((toggled: boolean) => {
       this.hamburger_toggled = toggled;
       if(toggled) {
@@ -48,6 +54,15 @@ hamburgerVisible$: Observable<boolean>;
   }
   toggleCollapse(): void {
     this.hamburger_toggled$.next(!this.hamburger_toggled);
+  }
+
+  logout() {
+    this.accountService.logout();
+  }
+
+  shouldShowHamburger(): boolean {
+    // Modify the condition based on your application's route configuration
+    return !this.router.url.includes('login') && !this.router.url.includes('registration');
   }
 }
 

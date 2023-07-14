@@ -18,10 +18,6 @@ export class RegistrationComponent {
 
   constructor(private router: Router) {}
 
-  goToRegistration() {
-    this.router.navigate(['/registration']);
-  }
-
   registerAccount() {
     // Perform registration logic here
     console.log(this.customer);

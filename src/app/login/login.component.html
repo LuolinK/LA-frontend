@@ -3,7 +3,7 @@
     <div class="card-body">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">    
-                <input type="text" placeholder="userName" formControlName="userName" class="form-control" />
+                <input type="text" placeholder="User Name" formControlName="userName" class="form-control" />
                 <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback">
                     <div *ngIf="f['userName'].errors['required']">Username is required</div>
                 </div>
@@ -21,11 +21,11 @@
                 </button> 
                 <div class="button-space"></div> <!-- Space for additional buttons -->
                 <label class="form-label" style="color:aliceblue; font-style: italic; font-size: small;">Don't have an account? Click here to get one  </label>
-                <button (click)="navigateToRegister()" style="display: contents; color:cornsilk;">Create an Account</button> 
+                <button (click)="navigateToRegistion()" style="display: contents; color:cornsilk;">Create an Account</button> 
             </div>
 
 
-            <div class="error-message" *ngIf="!loginSuccess">
+            <div class="error-message" [hidden]="errorHidden">
                     Wrong password or username!
                 </div>
         </form>
@@ -33,4 +33,4 @@
 </div>
 <body class="background-image">
     <!-- Your page content here -->
-</body>
+</body>  
